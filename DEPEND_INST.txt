@@ -1,0 +1,13 @@
+# 1. Install system-level C++ binaries for OpenCV, PyQt5, and I2C
+sudo apt update && sudo apt upgrade -y
+sudo apt install python3-opencv python3-pyqt5 i2c-tools libfreetype6-dev libjpeg-dev build-essential python3-venv -y
+
+# 2. Create and activate a virtual environment that inherits the system packages
+python3 -m venv testgig_env --system-site-packages
+source testgig_env/bin/activate
+
+# 3. Install core Python dependencies from your requirements
+pip install numpy>=1.24 scipy>=1.10 matplotlib>=3.7 reportlab>=4.0 qrcode[pil]>=7.4 Pillow>=10.0
+
+# 4. Install the hardware, API, and serial drivers required by hardware_vision.py
+pip install pyserial requests adafruit-blinka adafruit-circuitpython-mlx90640
